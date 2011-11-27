@@ -25,8 +25,8 @@ require 'benchmark.php';
 		);
 		render($comment_tmp,  $comment_view);
 	}
-	echo benchmark(10, 5000, 'test_simple'), PHP_EOL;
-	echo benchmark(10, 5000, 'loop_test'), PHP_EOL;
+	echo 'Simple Test: ', benchmark(10, 5000, 'test_simple'), PHP_EOL;
+	echo 'Loop Test: ', benchmark(10, 5000, 'loop_test'), PHP_EOL;
 
 function render($template, $view) {
 	extract($view);
