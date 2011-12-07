@@ -25,8 +25,11 @@ require 'benchmark.php';
 		);
 		render($comment_tmp,  $comment_view);
 	}
-	echo 'Simple Test: ', benchmark(10, 5000, 'test_simple'), PHP_EOL;
-	echo 'Loop Test: ', benchmark(10, 5000, 'loop_test'), PHP_EOL;
+	
+	$simpleResults =  benchmark(10, 5000, 'test_simple');
+	echo 'Simple Test: ', $simpleResults['time'], 'ms, ', $simpleResults['PhpMemory'], 'byte PHP, ', $simpleResults['RealMemory'], 'byte System',PHP_EOL;
+	$loopResults =  benchmark(10, 5000, 'test_simple');
+	echo 'Loop Test: ', $loopResults['time'], 'ms, ', $loopResults['PhpMemory'], 'byte PHP, ', $loopResults['RealMemory'], 'byte System',PHP_EOL;
 
 function render($template, $view) {
 	extract($view);
